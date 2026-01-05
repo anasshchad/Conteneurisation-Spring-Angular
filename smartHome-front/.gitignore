@@ -1,3 +1,13 @@
+# 1️⃣ Ajouter ou mettre à jour le .gitignore
+$gitignore = "smartHome-front/.gitignore"
+$content = @"
 .angular/
 node_modules/
 dist/
+"@
+
+if (Test-Path $gitignore) {
+    Add-Content $gitignore $content
+} else {
+    $content | Out-File $gitignore -Encoding UTF8
+}
